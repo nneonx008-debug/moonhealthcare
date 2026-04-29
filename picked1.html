@@ -1,0 +1,489 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthcare Recruitment</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #2A6F97; /* Primary Blue */
+      scroll-behavior: smooth; /* Smooth scroll between sections */
+    }
+    
+    /* Header Section */
+    header {
+      background-color: #1F3A5F; /* Dark Navy */
+      padding: 20px 0;
+      color: white;
+      text-align: center;
+      animation: fadeIn 1s ease-in;
+    }
+    header nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    header nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    header nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section with Green Background */
+    .hero {
+      background-color: #4CAF50; /* Action Green */
+      text-align: center;
+      padding: 60px 20px;
+      animation: fadeIn 1s ease-in;
+    }
+    .hero h1 {
+      font-size: 3.5em;
+      color: white;
+      margin-bottom: 20px;
+      animation: slideInLeft 1s ease-in-out;
+    }
+    .hero p {
+      font-size: 1.2em;
+      color: white;
+      margin-bottom: 30px;
+      animation: fadeInUp 1s ease-in 0.3s;
+    }
+    .cta-btn {
+      background-color: #2A6F97; /* Primary Blue */
+      color: white;
+      padding: 15px 40px;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 8px;
+      transition: background-color 0.3s, transform 0.3s;
+      animation: bounce 1s infinite alternate;
+    }
+    .cta-btn:hover {
+      background-color: #45a049;
+      transform: scale(1.05); /* Slight zoom effect */
+    }
+
+    /* About Section */
+    .about {
+      background-color: #DFF3E3; /* Soft Green */
+      padding: 50px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in 1s forwards; /* Fade-in from bottom */
+    }
+    .about h2 {
+      font-size: 2.5em;
+      color: #2A6F97;
+      margin-bottom: 20px;
+    }
+    .about p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .about img {
+      width: 100%;
+      max-width: 400px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    /* Why Healthcare Section */
+    .why-healthcare {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #F4F8FB;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in 1.5s forwards;
+    }
+    .why-healthcare h2 {
+      font-size: 2.5em;
+      color: #2A6F97;
+      margin-bottom: 20px;
+    }
+    .why-healthcare p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .why-healthcare img {
+      width: 100%;
+      max-width: 500px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    /* Job Listings Section */
+    .job-listings {
+      padding: 50px 20px;
+      display: flex;
+      background-color: #4CAF50;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      animation: fadeInUp 1s ease-in 2s forwards;
+    }
+    .job-card {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      width: 300px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .job-card:hover {
+      transform: translateY(-10px); /* Lift effect */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    .job-card h3 {
+      font-size: 1.5em;
+      color: #2A6F97;
+      margin-bottom: 10px;
+    }
+    .job-card p {
+      font-size: 1em;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .job-card .apply-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+    .job-card .apply-btn:hover {
+      background-color: #45a049;
+    }
+    .job-card img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      border-radius: 50%;
+    }
+
+    /* Recruitment Process Section */
+    .recruitment-process {
+      background-color: #E6F2FA;
+      padding: 50px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in 2.5s forwards;
+    }
+    .recruitment-process h2 {
+      font-size: 2.5em;
+      color: #2A6F97;
+      margin-bottom: 20px;
+    }
+    .recruitment-process ol {
+      font-size: 1.2em;
+      text-align: left;
+      display: inline-block;
+      padding: 0;
+    }
+    .recruitment-process li {
+      margin: 10px 0;
+    }
+
+    /* Testimonial Section */
+    .testimonials {
+      background-color: #E6F2FA;
+      padding: 50px 20px;
+      text-align: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in 3s forwards;
+    }
+    .testimonials h2 {
+      font-size: 2.5em;
+      color: #2A6F97;
+      margin-bottom: 30px;
+    }
+    .testimonial {
+      font-size: 1.2em;
+      font-style: italic;
+      color: #555;
+      margin: 20px 0;
+    }
+    .testimonial img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #F4F8FB;
+      opacity: 0;
+      animation: fadeInUp 1s ease-in 3.5s forwards;
+    }
+    .contact h2 {
+      font-size: 2.5em;
+      color: #2A6F97;
+      margin-bottom: 20px;
+    }
+    .contact p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .contact a {
+      font-size: 1.2em;
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #1F3A5F;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+    footer p {
+      font-size: 1em;
+      margin-bottom: 10px;
+    }
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+/* Add this keyframe animation for smooth sliding */
+@keyframes slideInSmooth {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to dynamic-text */
+.dynamic-text {
+  display: inline-block;
+  animation: slideInSmooth 1s ease-in-out;
+}
+  </style>
+  <style>
+  /* Add the slideInSmooth animation to make the text slide in */
+  @keyframes slideInSmooth {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  /* Apply the animation to the dynamic-text class */
+  .dynamic-text {
+    display: inline-block;
+    animation: slideInSmooth 0.5s ease-in-out;
+  }
+  /* Add this keyframe animation for smooth sliding */
+@keyframes slideInSmooth {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the .slide-in class */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 0.5s, transform 3.5s ease-out;
+}
+
+/* When scrolled into view, it triggers the slide-in effect */
+.slide-in.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Loading Screen Styles */
+
+</style>
+
+</head>
+
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Moon Healthcare Recruitment</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#jobs">Jobs</a>
+      <a href="#recruitmentprocess">Process</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero ">
+    <h1 class="dynamic-text">Join the Best Healthcare Team</h1>
+    <p>Find a rewarding career in healthcare and make a difference today.</p>
+    <a href="#jobs" class="cta-btn">Browse Jobs</a>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>Why Choose Us?</h2>
+    <p>We connect passionate healthcare professionals with leading employers. Our goal is to provide you with the best opportunities to grow your career in healthcare and make an impact in people's lives.</p>
+    <img src="https://plus.unsplash.com/premium_photo-1733317206347-e6eeea03bf41?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aGVhbHRoJTIwY2FyZSUyMHByb2Zlc3Npb25hbHN8ZW58MHx8MHx8fDA%3D" alt="Healthcare professionals working together">
+  </section>
+
+  <!-- Why Healthcare Section -->
+  <section class="why-healthcare" id="why-healthcare">
+    <h2>Why Choose
+        Moon Healthcare?</h2>
+    <p>Moon Healthcare is one of the most rewarding fields, offering a sense of fulfillment while contributing to the well-being of society. Whether you're looking for stability, flexibility, or opportunities to advance, healthcare offers a wide range of career paths that can help you achieve your personal and professional goals.</p>
+    <img src="https://plus.unsplash.com/premium_photo-1661775601929-8c775187bea6?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aGVhbHRoJTIwY2FyZSUyMHdvcmtlcnxlbnwwfHwwfHx8MA%3D%3D" alt="Healthcare worker with patients">
+  </section>
+
+  <!-- Job Listings Section -->
+  <section class="job-listings" id="jobs">
+    <div class="job-card">
+      <img src="https://plus.unsplash.com/premium_photo-1681967053996-4275be0191e7?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bnVyc2V8ZW58MHx8MHx8fDA%3D" alt="Nurse Icon">
+      <h3>Nurse</h3>
+      <p>Location: London, UK</p>
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    <div class="job-card">
+      <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bnVyc2V8ZW58MHx8MHx8fDA%3D" alt="Doctor Icon">
+      <h3>Doctor</h3>
+      <p>Location: Manchester, UK</p>
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+    <div class="job-card">
+      <img src="https://images.unsplash.com/photo-1758205307783-f31fe8499814?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aGVhbHRoJTIwY2FyZSUyMGFzc2lzdGFudHxlbnwwfHwwfHx8MA%3D%3D" alt="Healthcare Assistant Icon">
+      <h3>Healthcare Assistant</h3>
+      <p>Location: Birmingham, UK</p>
+      <a href="#" class="apply-btn">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- Recruitment Process Section -->
+  <section class="recruitment-process" id="recruitmentprocess">
+    <h2>Our Recruitment Process</h2>
+    <ol>
+      <li>Submit your resume and application</li>
+      <li>Participate in a screening interview</li>
+      <li>Get matched with top employers</li>
+      <li>Receive job offer and support for onboarding</li>
+    </ol>
+  </section>
+
+  <!-- Testimonial Section -->
+  <section class="testimonials" id="testimonials">
+    <h2>What Our Employees Say</h2>
+    <p class="testimonial">"The recruitment process was smooth, and I found the perfect job with great benefits!" - Sarah, Nurse</p>
+    <p class="testimonial">"Working with this team has given me amazing opportunities to advance my career!" - John, Doctor</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <p>If you have any questions or need more information, feel free to reach out to us.</p>
+    <a href="mailto:contact@healthcarerecruitment.com">Email Us</a>
+  </section>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2026 Moon Healthcare Recruitment | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms & Conditions</a></p>
+    <div>
+      <a href="#facebook">Facebook</a>
+      <a href="#twitter">Twitter</a>
+      <a href="#linkedin">LinkedIn</a>
+    </div>
+  </footer>
+<script>
+  const textElement = document.querySelector('.dynamic-text');
+  const phrases = [
+    "Join the Best Healthcare Team",
+    "Make a Difference Every Day",
+    "Work with Passionate Professionals",
+    "Grow Your Career in Healthcare"
+  ];
+
+  let currentPhraseIndex = 0;
+
+  function changeText() {
+    // Add a smooth sliding effect on text change
+    textElement.textContent = phrases[currentPhraseIndex];
+    textElement.style.animation = 'none'; // Reset animation
+    textElement.offsetHeight; // Trigger reflow to restart animation
+    textElement.style.animation = 'slideInSmooth 1s ease-in-out'; // Reapply the animation
+
+    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+  }
+
+  // Initial text load
+  changeText();
+
+  // Change text every 2 seconds
+  setInterval(changeText, 2000);
+</script>
+<script>
+  // Function to check when elements come into view
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      // If the element is in view, add the "visible" class
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Stop observing once the element is visible
+      }
+    });
+  }, { threshold: 0.5 }); // Observe when 50% of the element is in view
+
+
+
+</script>
+</body>
+</html>

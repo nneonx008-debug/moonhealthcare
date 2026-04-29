@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOON HEALTHCARE GROUP LIMITED</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #fff;
+            overflow-x: hidden;
+            background: #050816;
+        }
+
+        /* ===== ANIMATED GRADIENT BACKGROUND ===== */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, #22c55e33, transparent 40%),
+                radial-gradient(circle at 80% 30%, #3b82f633, transparent 40%),
+                radial-gradient(circle at 50% 80%, #a855f733, transparent 40%);
+            animation: moveBG 10s ease-in-out infinite alternate;
+            z-index: -2;
+        }
+
+        @keyframes moveBG {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+
+            100% {
+                transform: scale(1.2) translate(20px, -20px);
+            }
+        }
+
+        /* FLOATING GLOW BALLS */
+        .glow {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: -1;
+            animation: float 12s infinite alternate ease-in-out;
+        }
+
+        .glow.green {
+            background: #22c55e;
+            top: 10%;
+            left: 10%;
+        }
+
+        .glow.blue {
+            background: #3b82f6;
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .glow.purple {
+            background: #a855f7;
+            top: 50%;
+            left: 60%;
+        }
+
+        @keyframes float {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(40px, -60px);
+            }
+        }
+
+        /* HEADER */
+        header {
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #22c55e, #3b82f6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeIn 1s ease;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            opacity: 0.85;
+        }
+
+        /* BUTTON */
+        .btn {
+            margin-top: 25px;
+            padding: 14px 30px;
+            border: none;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(135deg, #22c55e, #3b82f6, #a855f7);
+            background-size: 200% 200%;
+            animation: gradientMove 4s infinite;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 25px rgba(34, 197, 94, 0.5);
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* SERVICES */
+        .services {
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            background: linear-gradient(90deg, #22c55e, #3b82f6, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        /* GLASS CARDS */
+        .card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 20px;
+            position: relative;
+            transition: 0.4s;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 0 40px rgba(34, 197, 94, 0.2);
+        }
+
+        /* animated border glow */
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #22c55e, #3b82f6, #a855f7, #22c55e);
+            z-index: -1;
+            filter: blur(10px);
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #0f172a, #1e293b, #0b1220);
+            box-shadow: 0 0 60px rgba(34, 197, 94, 0.1);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 30px rgba(34, 197, 94, 0.1);
+            }
+
+            50% {
+                box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);
+            }
+
+            100% {
+                box-shadow: 0 0 30px rgba(168, 85, 247, 0.1);
+            }
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.6;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+            .about {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- floating glow orbs -->
+    <div class="glow green"></div>
+    <div class="glow blue"></div>
+    <div class="glow purple"></div>
+
+    <header>
+        <h1>MOON HEALTHCARE GROUP LIMITED</h1>
+        <p>Connecting Healthcare Professionals with Leading Medical Institutions Worldwide</p>
+        <button class="btn">Get Started</button>
+    </header>
+
+    <section class="about">
+        <div>
+            <h2>Who We Are</h2>
+            <p>
+                We are a global healthcare recruitment agency connecting skilled professionals
+                with hospitals, clinics, and care institutions worldwide.
+            </p>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1000&q=80" />
+    </section>
+
+    <section class="services">
+        <h2>Our Services</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <img
+                    src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=800&q=80" />
+                <h3>Recruitment</h3>
+                <p>We match healthcare professionals with top hospitals globally.</p>
+            </div>
+
+            <div class="card">
+                <img
+                    src="https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=800&q=80" />
+                <h3>Training</h3>
+                <p>Certified programs to upgrade healthcare skills.</p>
+            </div>
+
+            <div class="card">
+                <img
+                    src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=800&q=80" />
+                <h3>International Placement</h3>
+                <p>Opportunities in UK, Canada, Europe and beyond.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Build Your Healthcare Career?</h2>
+        <p>Join a global network of professionals.</p>
+        <button class="btn">Apply Now</button>
+    </section>
+
+    <footer>
+        © 2026 MOON HEALTHCARE GROUP LIMITED. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
