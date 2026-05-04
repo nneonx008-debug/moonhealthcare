@@ -78,6 +78,83 @@ footer { text-align: center; padding: 25px; color: #777; }
 .align{
     text-align: center;
 }
+    .about-text {
+    max-width: 900px;
+    margin: 40px auto 0;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+/* subtle gradient border glow */
+.about-text::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    padding: 1px;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+}
+
+/* paragraph styling */
+.about-text p {
+    font-size: 15.5px;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 18px;
+    position: relative;
+    padding-left: 18px;
+}
+
+/* vertical accent line per paragraph */
+.about-text p::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    height: 80%;
+    width: 3px;
+    background: linear-gradient(180deg, #4f46e5, #06b6d4);
+    border-radius: 10px;
+}
+
+/* subtle hover effect */
+.about-text:hover {
+    transform: translateY(-4px);
+    transition: 0.3s;
+}
+
+/* nicer heading spacing */
+.section h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* MOBILE IMPROVEMENT */
+@media (max-width: 768px) {
+    .about-text {
+        padding: 25px 18px;
+    }
+
+    .about-text p {
+        font-size: 14.5px;
+    }
+}
+
+
+/* MOBILE */
+@media (max-width: 900px) {
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+}   
 </style>
 </head>
 <body>
@@ -106,44 +183,37 @@ footer { text-align: center; padding: 25px; color: #777; }
 <section class="section reveal">
   <h2>About Us</h2>
 
-  <p>
-    We specialise in emergency placements for children and young people,
-      delivering immediate, short-term care at times of urgent need.
-      When a child is at risk of harm, facing abandonment, or experiencing
-      a sudden breakdown in their current living arrangement, we respond 
-      rapidly—often overnight or during weekends—without the delays typically associated with standard placement processes.
-  </p>
+  <div class="about-text">
+    <!-- KEEP YOUR EXACT TEXT INSIDE -->
+    
+    <p>We specialise in emergency placements for children and young people,
+    delivering immediate, short-term care at times of urgent need.
+    When a child is at risk of harm, facing abandonment, or experiencing
+    a sudden breakdown in their current living arrangement, we respond 
+    rapidly—often overnight or during weekends—without the delays typically associated with standard placement processes.</p>
 
-  <p>
-    Our service is designed with flexibility at its core.
-      
-      Placements may range from a single night to several weeks, depending 
-      on individual needs and circumstances. During this critical period,
-      our primary focus is to provide a safe, stable, and supportive
-      environment. We help children regain emotional balance following
-      distress or trauma, and where appropriate, offer therapeutic support to help them navigate uncertainty.
-  </p>
+    <p>Our service is designed with flexibility at its core.
+    Placements may range from a single night to several weeks, depending 
+    on individual needs and circumstances. During this critical period,
+    our primary focus is to provide a safe, stable, and supportive
+    environment. We help children regain emotional balance following
+    distress or trauma, and where appropriate, offer therapeutic support to help them navigate uncertainty.</p>
 
-  <p>
-    We work collaboratively with social services, families,
-      and long-term carers to facilitate smooth and effective transitions into stable, ongoing care arrangements. Our role is to act as a compassionate and reliable first response—providing protection and reassurance while supporting a pathway toward long-term stability.
-  </p>
+    <p>We work collaboratively with social services, families,
+    and long-term carers to facilitate smooth and effective transitions into stable, ongoing care arrangements. Our role is to act as a compassionate and reliable first response—providing protection and reassurance while supporting a pathway toward long-term stability.</p>
 
-  <p>
-    Every emergency placement is supported by dedicated management oversight.
-      Our experienced Package Managers take a hands-on approach, meeting each child 
-      or young person personally to build trust and ensure their needs are understood.
-      They remain accessible at all times, offering a consistent point of contact for support or concerns.
-  </p>
+    <p>Every emergency placement is supported by dedicated management oversight.
+    Our experienced Package Managers take a hands-on approach, meeting each child 
+    or young person personally to build trust and ensure their needs are understood.
+    They remain accessible at all times, offering a consistent point of contact for support or concerns.</p>
 
-  <p>
-    In addition, our Package Managers conduct regular in-person visits,
-      oversee all documentation and reporting, attend care meetings, liaise
-      closely with social workers and other professionals, and provide ongoing
-      supervision to support staff. This ensures the highest standards of care,
-      accountability, and safeguarding are consistently maintained.
-  </p>
+    <p>In addition, our Package Managers conduct regular in-person visits,
+    oversee all documentation and reporting, attend care meetings, liaise
+    closely with social workers and other professionals, and provide ongoing
+    supervision to support staff. This ensures the highest standards of care,
+    accountability, and safeguarding are consistently maintained.</p>
 
+  </div>
 </section>
 <style>
 section img:hover {
