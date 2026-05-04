@@ -237,7 +237,27 @@ button
 .card small {
     color: #666;
 }
+.hero-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
 
+.hero-logo img {
+    height: 60px;        /* 🔥 controls size (adjust 50–80px) */
+    width: auto;
+    object-fit: contain;
+
+    /* sharpness boost */
+    image-rendering: -webkit-optimize-contrast;
+    filter: contrast(1.05) brightness(1.05);
+
+    display: block;      /* removes weird spacing */
+}
+    .hero-logo img {
+    height: 55px;
+    vertical-align: middle;
+}
 /* CTA */
 .cta {
     margin: 60px 8%;
@@ -435,12 +455,12 @@ nav.show {
 </header>
 <section class="hero reveal">
 <div class="hero-text">
-
-    
-    <h1>
+<h1 class="hero-logo">
       <img src="https://mail.google.com/mail/u/0?ui=2&ik=51c6988aa9&attid=0.1&permmsgid=msg-a:r6329698151984582733&th=19df37a2410b14f4&view=att&disp=safe&realattid=f_mor9d6ie0&zw" alt="">
-        
-    </h1>
+</h1>
+    
+    
+
 
 
     <p>
