@@ -240,23 +240,19 @@ button
 .hero-logo {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    line-height: 1;
 }
 
 .hero-logo img {
-    height: 60px;        /* 🔥 controls size (adjust 50–80px) */
+    height: 100px;   /* 🔥 increase size here (try 90–140px) */
     width: auto;
     object-fit: contain;
+    display: block;
 
-    /* sharpness boost */
+    /* improve clarity slightly */
     image-rendering: -webkit-optimize-contrast;
     filter: contrast(1.05) brightness(1.05);
-
-    display: block;      /* removes weird spacing */
-}
-    .hero-logo img {
-    height: 55px;
-    vertical-align: middle;
 }
 /* CTA */
 .cta {
